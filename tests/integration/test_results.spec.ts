@@ -1,5 +1,7 @@
 import { test, expect, request, APIRequestContext } from '@playwright/test';
 import TestResults from '../../lib/testResults'; // Import the API object
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 test.describe('Integration Test For /api/test_results', () => {
   let apiContext: APIRequestContext;
@@ -7,7 +9,7 @@ test.describe('Integration Test For /api/test_results', () => {
 
   test.beforeAll(async () => {
     apiContext = await request.newContext({
-      baseURL: 'https://test-confluencer-e322c7684160.herokuapp.com', // API's base URL
+      baseURL: process.env.BASE_URL, // API's base URL
       extraHTTPHeaders: {
         'Content-Type': 'application/json',
       },
