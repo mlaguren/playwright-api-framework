@@ -1,5 +1,6 @@
 .env
 .idea/
+allure-results/
 node_modules/
 playwright-report/
 test-results/

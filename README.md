@@ -11,3 +11,4 @@
 ## Set Up
 1. Create a .env file based on the .env.template file
 2. Update .env file with appropriate values for testing
+3. If not installed, install Allure
