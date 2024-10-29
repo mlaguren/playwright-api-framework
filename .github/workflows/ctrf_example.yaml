@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
       - name: Run Playwright tests
         run: npx playwright test
       - name: Run CTRF annotations
