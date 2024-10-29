@@ -1,0 +1,13 @@
+name: Example workflow file
+
+on: [push]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run CTRF annotations
+        run: npx github-actions-ctrf ./ctrf/ctrf-report.json
+        if: always()
