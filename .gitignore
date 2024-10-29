@@ -4,3 +4,4 @@ ctrf/
 node_modules/
 playwright-report/
 test-results/
+failed-*

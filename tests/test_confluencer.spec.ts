@@ -23,7 +23,7 @@ test.describe('Integration Test For /api/test_results', () => {
 
 
     test('Update Confluence Page With Latest Test Results For A Given Project', async () => {
-        const newResults = { project: 'API', pass: 1199, fail: 60, skipped: 55 };
+        const newResults = { project: 'API', pass: 1147, fail: 112, skipped: 55 };
         const response = await testResults.createTestResults(newResults); // Use the instance method
         expect(response.ok()).toBeTruthy();
 
@@ -34,8 +34,8 @@ test.describe('Integration Test For /api/test_results', () => {
         expect(response.ok()).toBeTruthy();
         const responseBody = await response.json();
         console.log(responseBody);
-        expect(responseBody.pass).toBe(1199);
-        expect(responseBody.fail).toBe(60);
+        expect(responseBody.pass).toBe(1147);
+        expect(responseBody.fail).toBe(112);
         expect(responseBody.skipped).toBe(55);
 
     });
