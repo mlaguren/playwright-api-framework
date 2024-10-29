@@ -20,6 +20,13 @@ class TestResults {
         });
         return response;
     }
+
+    async retrieveTestResults(params: Record<string, string>): Promise<APIResponse> {
+        const response = await this.apiContext.get('/api/test_results', {
+            params: params,
+        });
+        return response;
+    }
 }
 
 export default TestResults;

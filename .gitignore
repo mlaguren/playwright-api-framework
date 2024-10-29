@@ -1,6 +1,6 @@
 .env
 .idea/
-allure-results/
+ctrf/
 node_modules/
 playwright-report/
 test-results/

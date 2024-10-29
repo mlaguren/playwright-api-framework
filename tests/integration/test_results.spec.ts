@@ -22,7 +22,7 @@ test.describe('Integration Test For /api/test_results', () => {
   });
 
   test('POST /api/test_results - Create new test results', async () => {
-    const newResults = { project: 'test', pass: 10, fail: 5, skipped: 5 };
+    const newResults = { project: 'API', pass: 1199, fail: 60, skipped: 55 };
     const response = await testResults.createTestResults(newResults); // Use the instance method
     console.log('Response status:', response.status());
     expect(response.ok()).toBeTruthy();
@@ -31,10 +31,19 @@ test.describe('Integration Test For /api/test_results', () => {
     expect(responseBody.pass).toBe(newResults.pass);
     expect(responseBody.fail).toBe(newResults.fail);
     expect(responseBody.skipped).toBe(newResults.skipped);
-    expect(responseBody.pass_rate).toBe(50);
+    expect(responseBody.pass_rate).toBe(91.25);
   });
 
   test('GET /api/test_results - Get Test Results From Confluence', async () => {
+    const response = await testResults.retrieveTestResults({
+      project: 'API',
+    });
 
+    expect(response.ok()).toBeTruthy();
+    const responseBody = await response.json();
+    console.log(responseBody);
+    expect(parseInt(responseBody.pass)).toBe(1199);
+    expect(parseInt(responseBody.fail)).toBe(60);
+    expect(parseInt(responseBody.skipped)).toBe(55);
   });
 });
